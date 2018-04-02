@@ -168,11 +168,23 @@ class Docs extends Command
         $controllers = new Collection;
 
         foreach ($this->router->getRoutes() as $collection) {
-            if ($controller = $collection->getController()) {
+            if ($this->filterController($collection) && $controller = $collection->getController()) {
                 $this->addControllerIfNotExists($controllers, $controller);
             }
         }
         return $controllers;
+    }
+
+    /**
+     * Illuminate\Routing\Route getActionName方法获取方法名称，如果是回调函数,返回:Closure
+     *
+     * @param RouteCollection $collection
+     *
+     * @return bool
+     */
+    protected function filterController($collection)
+    {
+        return strpos($collection->getActionName(), '@') ? true : false;
     }
 
     /**
