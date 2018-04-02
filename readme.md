@@ -9,28 +9,28 @@ Some index method phpdoc example:
 ```
 <?php
 /**
- * Products
- *
- * @Resource("Products", uri="/products")
+ * Class CarsController
+ * @package App\Http\Controllers
+ * @Resource("CarResource", uri="/api/cars")
 */
-class ProductsController extends Controller
+class CarsController extends Controller
 {
     /**
-     * Products list
+     * cars list
      *
-     * Get current products list
-     * 
-     * @Get("/")
+     * Get current cars list
+     *
+     * @Get("/list")
      * @Transaction({
-     *      @Request(identifier="/?state=synced"),
-     *      @Response(200, body={"data":{{"id":"rkoVJ7qa4Z6lzXdVnldgx9LmpBP0DQ3e","name":"Product name","status":"active"}},"meta":{"pagination":{"total":1,"count":1,"per_page":1,"current_page":1,"total_pages":1,"links":{}}}})
+     *      @Request(identifier="page=1&type=1"),
+     *      @Response(200, body={"msg": "返回成功","code": 200,"page": 1,"timestamp": "1522673813","data":{"result":{{"price": "2200","type": "福特","notice": "豪车"},{"price": "2200","type": "大众","notice": "车"}}}})
      * })
      * @Parameters({
-     *      @Parameter("api_token", type="string", required=true, description="API Token", default=null),
-     *      @Parameter("page", type="integer", required=false, description="Pagination page", default=1),
-     *      @Parameter("state", type="string", required=false, description="Product status filter", default="synced", members={
-     *          @Member(value="synced", description="Products synced"),
-     *          @Member(value="pending", description="Products pending")
+     *      @Parameter("page", type="integer", required=true, description="分页", default=1),
+     *      @Parameter("search", type="string", required=false, description="搜索条件"),
+     *      @Parameter("type", type="integer", required=true, description="汽车类型", default=1, members={
+     *          @Member(value="1", description="新车"),
+     *          @Member(value="2", description="旧车")
      *      })
      * })
      */
@@ -38,6 +38,8 @@ class ProductsController extends Controller
     {}
 }
 ```
+如下：
+[image/image.jpg](image/image.jpg)
 
 ## 为何制作这个？
 
@@ -67,9 +69,9 @@ Blueprint Generator的使用方式同第二种略相似，即给每一个方法�
 1.类的注释需要有！比如：
 ```
 /**
- * Products
- *
- * @Resource("Products", uri="/products")
+ * Class CarsController
+ * @package App\Http\Controllers
+ * @Resource("CarResource", uri="/api/cars")
 */
 ```
 
