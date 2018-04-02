@@ -88,7 +88,7 @@ php artisan birjemin:docs {--name= : Name of the generated documentation}
 ```
 
 4.示例：
-* `composer require birjemin/blueprint dev-master`；
+* `composer require birjemin/blueprint`；
 * 将`BlueprintServiceProvider::class`注册到`app.php`中；
 * 写好接口注释；
 * 使用下面的命令生成markdown文档：
