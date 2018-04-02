@@ -51,20 +51,6 @@ class BlueprintServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the configuration.
-     *
-     * @return void
-     */
-    protected function registerConfig()
-    {
-        $this->mergeConfigFrom(realpath(__DIR__.'/../../config/api.php'), 'api');
-
-        if (! $this->app->runningInConsole() && empty($this->config('prefix')) && empty($this->config('domain'))) {
-            throw new RuntimeException('Unable to boot ApiServiceProvider, configure an API domain or prefix.');
-        }
-    }
-
-    /**
      * Register the documentation command.
      *
      * @return void
