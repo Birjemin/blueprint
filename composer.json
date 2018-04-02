@@ -18,11 +18,7 @@
         "illuminate/support": "5.1.* || 5.2.* || 5.3.* || 5.4.*",
         "illuminate/filesystem": "5.1.* || 5.2.* || 5.3.* || 5.4.*",
         "doctrine/annotations": "~1.2",
-        "phpdocumentor/reflection-docblock": "3.1.*"
-    },
-    "require-dev": {
-        "squizlabs/php_codesniffer": "~2.0",
-        "phpunit/phpunit": "~4.0"
+        "phpdocumentor/reflection-docblock": "3.*"
     },
     "autoload": {
         "psr-4": {
@@ -36,7 +32,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "0.2.1-dev"
+            "dev-master": "0.2.2-dev"
         }
     },
     "minimum-stability": "dev",
