@@ -39,7 +39,7 @@ class CarsController extends Controller
 }
 ```
 如下：
-[image/image.jpg](image/image.jpg)
+![image/image.jpg](image/image.jpg)
 
 ## 为何制作这个？
 
